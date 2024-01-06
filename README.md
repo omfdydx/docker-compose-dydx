@@ -4,6 +4,10 @@
 ## Includes 
 `1) MongoDb`
 
+_Copy the **env.mongodb.sample** file & set your own **credentials**_ 
+
+```cp .env.mongodb.sample .env.mongodb``` 
+
 ###### Configurations
     a.MONGO_VERSION
     a.MONGO_VOLUME_NAME

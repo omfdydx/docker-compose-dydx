@@ -1,0 +1,21 @@
+version: ${DOCKER_COMPOSE_VERSION}
+services:
+  mongodb:
+    image: mongo:${MONGO_VERSION}
+    env_file:
+      - .env.mongodb
+    restart: always
+    networks:
+      - omfdydx
+    volumes:
+      - type: volume
+        source: mongodb
+        target: /data/db
+    ports:
+      - ${MONGO_PORT}:${MONGO_DEFAULT_PORT}
+volumes:
+  mongodb:
+    name: ${MONGO_VOLUME_NAME}
+networks:
+  omfdydx:
+    name: ${DOCKER_NETWORK}

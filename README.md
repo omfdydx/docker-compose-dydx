@@ -10,9 +10,9 @@ _Copy the **env.mongodb.sample** file to _env.mongodb_ & set your own **credenti
 
 ###### Configurations
     a.MONGO_VERSION
-    a.MONGO_VOLUME_NAME
-    a.DOCKER_NETWORK
-    a.ENVIRONMENT VARIABLES = .env.mongodb 
+    b.MONGO_VOLUME_NAME
+    c.DOCKER_NETWORK
+    d.ENVIRONMENT VARIABLES = .env.mongodb 
 ----
 `2. Emqx` 
 

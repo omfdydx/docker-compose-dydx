@@ -24,7 +24,7 @@ tasks:
       - docker-compose up -d emqx
   emqx-logs:
     cmds:
-      - docker logs -f EMQX_CONTAINER_NAME
+      - docker logs -f $EMQX_CONTAINER_NAME
   emqx-down:
     cmds:
       - docker-compose down emqx

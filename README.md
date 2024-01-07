@@ -1,4 +1,21 @@
-# Docker Compose of day to day Dev related activity
+# Docker Compose Dy-by-Dx
+
+Create the daily used services / infrastructure for development in a single compose which are configurable. 
+- Regular Used Services for my works
+- Fully configurable in terms of 
+  - **ENV** variables
+  - **Docker Networks**
+  - **Docker Volumes**
+
+Service | Type          | Configured 
+--- |---------------| ---
+*MongoDB* | `Database`    | **Y**
+*Emqx* | `MQTT Broker` | **Y**
+*Elasticsearch* | `Database`    | **N**
+*PostgresQl* | `Database`    | **N**
+*Redis* | `Cache`       | **N**
+*Kafka* | `Broker`      | **N**
+*RabbitMQ* | `Broker`      | **N**
 
 ----
 ## Includes 

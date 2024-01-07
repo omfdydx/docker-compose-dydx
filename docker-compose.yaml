@@ -2,6 +2,7 @@ version: ${DOCKER_COMPOSE_VERSION}
 services:
   mongodb:
     image: mongo:${MONGO_VERSION}
+    container_name: ${MONGO_CONTAINER_NAME}
     env_file:
       - .env.mongodb
     restart: always
@@ -13,9 +14,28 @@ services:
         target: /data/db
     ports:
       - ${MONGO_PORT}:${MONGO_DEFAULT_PORT}
+  emqx:
+    image: emqx:${EMQX_VERSION}
+    container_name: ${EMQX_CONTAINER_NAME}
+    restart: always
+    env_file:
+      - ./.env.emqx
+    networks:
+      - omfdydx
+    volumes:
+      - type: volume
+        source: emqxdb
+        target: /opt/emqx
+    ports:
+      - ${EMQX_TCP}:${EMQX_TCP_DEFAULT}
+      - ${EMQX_DASHBOARD}:${EMQX_DASHBOARD_DEFAULT}
+
+#Volumes & Networks listed
 volumes:
   mongodb:
     name: ${MONGO_VOLUME_NAME}
+  emqxdb:
+    name: ${EMQX_VOLUME_NAME}
 networks:
   omfdydx:
     name: ${DOCKER_NETWORK}

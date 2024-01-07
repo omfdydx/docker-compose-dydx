@@ -1,3 +1,4 @@
 # Idea
 .idea
-.env.mongodb
+.env.*
+!.env.*.sample

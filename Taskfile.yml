@@ -1,0 +1,30 @@
+version: 3
+dotenv: ['.env']
+tasks:
+#  Up & Down for all the services mentioned in Docker-Compose
+  all:
+    cmds:
+      - docker-compose up -d
+  shutdown:
+    cmds:
+      - docker-compose down
+# MongoDB Commands
+  mongodb-up:
+    cmds:
+      - docker-compose up -d mongodb
+  mongodb-logs:
+    cmds:
+      - docker logs -f $MONGO_CONTAINER_NAME
+  mongodb-down:
+    cmds:
+      - docker-compose down mongodb
+# EMQX Commands
+  emqx-up:
+    cmds:
+      - docker-compose up -d emqx
+  emqx-logs:
+    cmds:
+      - docker logs -f EMQX_CONTAINER_NAME
+  emqx-down:
+    cmds:
+      - docker-compose down emqx

@@ -2,9 +2,9 @@
 
 ----
 ## Includes 
-`1) MongoDb`
+`1. MongoDb`
 
-_Copy the **env.mongodb.sample** file & set your own **credentials**_ 
+_Copy the **env.mongodb.sample** file to _env.mongodb_ & set your own **credentials**_ 
 
 ```cp .env.mongodb.sample .env.mongodb``` 
 
@@ -14,14 +14,25 @@ _Copy the **env.mongodb.sample** file & set your own **credentials**_
     a.DOCKER_NETWORK
     a.ENVIRONMENT VARIABLES = .env.mongodb 
 ----
-WIP
+`2. Emqx` 
 
-`2) ElasticSearch`
+_Copy the **env.emqx.sample** file to _env.emqx_ & set your own **credentials**_
 
-`3) PostgresQl`
+```cp .env.emqx.sample .env.emqx```
+###### Configurations
+    a. EMQX_VERSION
+    b. EMQX_VOLUME_NAME
+    c. EMQX_CONTAINER_NAME
+    d. EMQX_TCP_DEFAULT
+    e. EMQX_DASHBOARD_DEFAULT
+    f. ENVIRONMENT VARIABLES = .env.emqx
 
-`4) Redis`
+`3. ElasticSearch`
 
-`5) Kafka`
+`4. PostgresQl`
 
-`6) RabbitMQ`
+`5. Redis`
+
+`6. Kafka`
+
+`7. RabbitMQ`

@@ -33,9 +33,11 @@ services:
 #Volumes & Networks listed
 volumes:
   mongodb:
-    name: ${MONGO_VOLUME_NAME}
+    name: ${MONGO_VOLUME_NAME} a
+    external: true
   emqxdb:
     name: ${EMQX_VOLUME_NAME}
+    external: true
 networks:
   omfdydx:
     name: ${DOCKER_NETWORK}

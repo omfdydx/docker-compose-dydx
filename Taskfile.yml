@@ -3,28 +3,36 @@ dotenv: ['.env']
 tasks:
 #  Up & Down for all the services mentioned in Docker-Compose
   all:
+    desc: Start all services
     cmds:
       - docker-compose up -d
   shutdown:
+    desc: Stop all services
     cmds:
       - docker-compose down
 # MongoDB Commands
   mongodb-up:
+    desc: Start MongoDb
     cmds:
       - docker-compose up -d mongodb
   mongodb-logs:
+    desc: Log MongoDb
     cmds:
       - docker logs -f $MONGO_CONTAINER_NAME
   mongodb-down:
+    desc: Stop MongoDb
     cmds:
       - docker-compose down mongodb
 # EMQX Commands
   emqx-up:
+    desc: Start Emqx broker
     cmds:
       - docker-compose up -d emqx
   emqx-logs:
+    desc:  Log Emqx broker
     cmds:
       - docker logs -f $EMQX_CONTAINER_NAME
   emqx-down:
+    desc: Stop Emqx broker
     cmds:
       - docker-compose down emqx

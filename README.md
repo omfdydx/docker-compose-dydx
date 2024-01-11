@@ -6,6 +6,31 @@ Create the daily used services / infrastructure for development in a single comp
   - **ENV** variables
   - **Docker Networks**
   - **Docker Volumes**
+ 
+```
+Examples
+
+a. Start all services
+  **task all**
+
+b. Start only Mongodb
+  **task mongodb-up**
+
+c. Watch Mongo Logs
+  **task mongodb-logs**
+
+....
+...
+..
+.
+And so on !!
+This way any combination of services can be Started | Stopped | Monitored
+as per the Project Dev is working on currently
+
+
+Note: To leverage simple commands for start/stop/logs install Go and Taskfile as per the instructions
+https://taskfile.dev/installation/
+```  
 
 Service | Type          | Configured 
 --- |---------------| ---

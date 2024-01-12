@@ -1,6 +1,9 @@
-# Docker Compose Dy-by-Dx
+# Docker Compose Dy-by-Dx !
 
-1.[ ] **KISS** - _Keeping Infra Simple Stupid_  
+
+![alt text](https://i.imgur.com/6mSCz9P.png "KISS")
+
+**KISS** - _Keeping Infra Simple Stupid_  
 
 Create the daily used services / infrastructure for development in a single compose which
 are configurable. 

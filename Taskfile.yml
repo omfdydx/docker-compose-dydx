@@ -29,7 +29,7 @@ tasks:
       - docker-compose --profile default down mongodb
 
 # ElasticSearch Commands
-  elastic-setup:
+  elasticsearch-setup:
     desc: Start ElasticSearch Setup for SSL/TLS Setup for Kibana & Elasticsearch
     cmds:
       - docker-compose --profile default up -d elasticsearch
@@ -63,3 +63,17 @@ tasks:
     desc: Stop Emqx broker
     cmds:
       - docker-compose --profile default down emqx
+
+  # Kibana Commands
+  kibana-up:
+    desc: Start Kibana
+    cmds:
+      - docker-compose --profile default up -d kibana
+  kibana-logs:
+    desc:  Log Kibana
+    cmds:
+      - docker logs -f $KIBANA_CONTAINER_NAME
+  kibana-down:
+    desc: Stop Kibana
+    cmds:
+      - docker-compose --profile default down kibana

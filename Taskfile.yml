@@ -5,16 +5,20 @@ tasks:
   all:
     desc: Start all services
     cmds:
-      - docker-compose up -d
+      - docker-compose --profile default up -d
   shutdown:
     desc: Stop all services
     cmds:
-      - docker-compose down
+      - docker-compose --profile default down
+      - docker system prune -f
+      - docker volume prune -f
+      - echo "PRUNED DANGLING VOLUMES & CONTAINERS"
+
 # MongoDB Commands
   mongodb-up:
     desc: Start MongoDb
     cmds:
-      - docker-compose up -d mongodb
+      - docker-compose --profile default up -d mongodb
   mongodb-logs:
     desc: Log MongoDb
     cmds:
@@ -22,12 +26,35 @@ tasks:
   mongodb-down:
     desc: Stop MongoDb
     cmds:
-      - docker-compose down mongodb
-# EMQX Commands
+      - docker-compose --profile default down mongodb
+
+# ElasticSearch Commands
+  elastic-setup:
+    desc: Start ElasticSearch Setup for SSL/TLS Setup for Kibana & Elasticsearch
+    cmds:
+      - docker-compose --profile default up -d elasticsearch
+      - docker-compose --profile setup_elk up elasticsearch-setup
+      - docker container rm $ELASTICSEARCH_SETUP_CONTAINER_NAME
+      - echo "ElasticSearch Setup Done!"
+  elasticsearch-logs:
+    desc:  Log ElasticSearch
+    cmds:
+      - docker logs -f $ELASTICSEARCH_CONTAINER_NAME
+  elasticsearch-down:
+    desc: Stop ElasticSearch
+    cmds:
+      - docker-compose --profile default down elasticsearch
+  elasticsearch-up:
+    desc: Start ElasticSearch
+    cmds:
+      - docker-compose --profile default up -d elasticsearch
+
+
+  # EMQX Commands
   emqx-up:
     desc: Start Emqx broker
     cmds:
-      - docker-compose up -d emqx
+      - docker-compose --profile default up -d emqx
   emqx-logs:
     desc:  Log Emqx broker
     cmds:
@@ -35,4 +62,4 @@ tasks:
   emqx-down:
     desc: Stop Emqx broker
     cmds:
-      - docker-compose down emqx
+      - docker-compose --profile default down emqx

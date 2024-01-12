@@ -1,5 +1,7 @@
 # Docker Compose Dy-by-Dx
 
+1.[ ] **KISS** - _Keeping Infra Simple Stupid_  
+
 Create the daily used services / infrastructure for development in a single compose which
 are configurable. 
 - Regular Used Services for my works
@@ -93,6 +95,7 @@ _Copy the **env.emqx.sample** file to _env.emqx_ & set your own **credentials**_
 `3. ElasticSearch`
 
 _Copy the **env.elasticsearch.sample** file to _env.elasticsearch_ & set your own **credentials**_
+
 ```cp .env.elasticsearch.sample .env.elasticsearch```
 
 ```bash

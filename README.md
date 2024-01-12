@@ -1,6 +1,7 @@
 # Docker Compose Dy-by-Dx
 
-Create the daily used services / infrastructure for development in a single compose which are configurable. 
+Create the daily used services / infrastructure for development in a single compose which
+are configurable. 
 - Regular Used Services for my works
 - Fully configurable in terms of 
   - **ENV** variables
@@ -30,20 +31,21 @@ This way any combination of services can be Started | Stopped | Monitored
 as per the Project Dev is working on currently
 
 
-Note: To leverage simple commands for start/stop/logs install Go and Taskfile as per the instructions
+Note: To leverage simple commands for start/stop/logs install Go and Taskfile 
+as per the instructions
 https://taskfile.dev/installation/
 ```  
 
-Service | Type                  | Configured 
---- |-----------------------| ---
-*MongoDB* | `Database`            | **Y**
-*Emqx* | `MQTT Broker`         | **Y**
-*Elasticsearch* | `Database`            | **Y**
-*Kibana* | `Analytics Dashboard` | **Y**
-*PostgresQl* | `Database`            | **N**
-*Redis* | `Cache`               | **N**
-*Kafka* | `Broker`              | **N**
-*RabbitMQ* | `Broker`              | **N**
+| Service         | Type                  | Configured  | 
+|-----------------|-----------------------|-------------|
+ | *MongoDB*       | `Database`            | **Y**       |
+ | *Emqx*          | `MQTT Broker`         | **Y**       |
+ | *Elasticsearch* | `Database`            | **Y**       |
+ | *Kibana*        | `Analytics Dashboard` | **Y**       |
+ | *PostgresQl*    | `Database`            | **N**       |
+ | *Redis*         | `Cache`               | **N**       |
+ | *Kafka*         | `Broker`              | **N**       |
+ | *RabbitMQ*      | `Broker`              | **N**       |
 
 ----
 ## Includes 
@@ -96,7 +98,8 @@ _Copy the **env.elasticsearch.sample** file to _env.elasticsearch_ & set your ow
 ```bash
 Step 1: >task elasticsearch-setup
 
-**Wait for the configuration to successfully exit for passwords & certificates to be set properly**
+**Wait for the configuration to successfully exit 
+for passwords & certificates to be set properly**
 
 
 

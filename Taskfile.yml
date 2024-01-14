@@ -82,7 +82,7 @@ tasks:
     cmds:
       - docker-compose --profile default down kibana
 
-  ##################################################
+##################################################
   # Postgresql Commands
   postgresql-up:
     desc: Start Postgresql
@@ -96,3 +96,18 @@ tasks:
     desc: Stop Postgresql
     cmds:
       - docker-compose --profile default down postgresql
+
+##################################################
+  # Redis Commands
+  redis-up:
+    desc: Start Redis
+    cmds:
+      - docker-compose --profile default up -d redis
+  redis-logs:
+    desc:  Log Redis
+    cmds:
+      - docker logs -f $REDIS_CONTAINER_NAME
+  redis-down:
+    desc: Stop Redis
+    cmds:
+      - docker-compose --profile default down redis

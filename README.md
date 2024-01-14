@@ -48,7 +48,7 @@ https://taskfile.dev/installation/
  | *Elasticsearch* | `Database`            | **Y**      |
  | *Kibana*        | `Analytics Dashboard` | **Y**      |
  | *PostgresQl*    | `Database`            | **Y**      |
- | *Redis*         | `Cache`               | **N**      |
+ | *Redis*         | `Cache`               | **Y**      |
  | *Kafka*         | `Broker`              | **N**      |
  | *RabbitMQ*      | `Broker`              | **N**      |
 
@@ -162,6 +162,22 @@ _Copy the **env.postgresql.sample** file to _env.postgresql_ & set your own **cr
 
 `6. Redis`
 
+_Copy the **env.redis.sample** file to _env.redis_ & set your own **credentials**_
+
+```cp .env.redis.sample .env.redis```
+###### Configurations
+    a. REDIS_VERSION
+    b. REDIS_VOLUME_NAME
+    c. REDIS_CONTAINER_NAME
+    d. REDIS_TCP_DEFAULT
+    e. REDIS_TCP
+    f. ENVIRONMENT VARIABLES = .env.redis
+
+```bash
+  >task redis-up
+  >task redis-logs
+  >task redis-down
+```
 `7. Kafka`
 
 `8. RabbitMQ`

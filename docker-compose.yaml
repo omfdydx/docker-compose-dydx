@@ -182,7 +182,22 @@ services:
       - ${POSTGRESQL_TCP}:${POSTGRESQL_TCP_DEFAULT}
     env_file:
       - ./.env.postgresql
-
+  redis:
+    image: redis:${REDIS_VERSION}
+    command: /bin/sh -c "redis-server --requirepass $$REDIS_PASSWORD"
+    container_name: ${REDIS_CONTAINER_NAME}
+    profiles:
+      - default
+    networks:
+      - omfdydx
+    volumes:
+      - type: volume
+        source: redisdata
+        target: /data
+    ports:
+      - ${REDIS_TCP}:${REDIS_TCP_DEFAULT}
+    env_file:
+      - ./.env.redis
 #Volumes & Networks listed
 volumes:
   mongodb:
@@ -197,6 +212,8 @@ volumes:
     name: ${KIBANA_VOLUME_NAME}
   postgresqldata:
     name: ${POSTGRESQL_VOLUME_NAME}
+  redisdata:
+    name: ${REDIS_VOLUME_NAME}
 networks:
   omfdydx:
     name: ${DOCKER_NETWORK}

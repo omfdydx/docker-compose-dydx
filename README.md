@@ -159,6 +159,8 @@ _Copy the **env.postgresql.sample** file to _env.postgresql_ & set your own **cr
   >task postgresql-logs
   >task postgresql-down
 ```
+--------
+--------
 
 `6. Redis`
 

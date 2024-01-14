@@ -41,16 +41,16 @@ as per the instructions
 https://taskfile.dev/installation/
 ```  
 
-| Service         | Type                  | Configured  | 
-|-----------------|-----------------------|-------------|
- | *MongoDB*       | `Database`            | **Y**       |
- | *Emqx*          | `MQTT Broker`         | **Y**       |
- | *Elasticsearch* | `Database`            | **Y**       |
- | *Kibana*        | `Analytics Dashboard` | **Y**       |
- | *PostgresQl*    | `Database`            | **N**       |
- | *Redis*         | `Cache`               | **N**       |
- | *Kafka*         | `Broker`              | **N**       |
- | *RabbitMQ*      | `Broker`              | **N**       |
+| Service         | Type                  | Configured | 
+|-----------------|-----------------------|------------|
+ | *MongoDB*       | `Database`            | **Y**      |
+ | *Emqx*          | `MQTT Broker`         | **Y**      |
+ | *Elasticsearch* | `Database`            | **Y**      |
+ | *Kibana*        | `Analytics Dashboard` | **Y**      |
+ | *PostgresQl*    | `Database`            | **Y**      |
+ | *Redis*         | `Cache`               | **N**      |
+ | *Kafka*         | `Broker`              | **N**      |
+ | *RabbitMQ*      | `Broker`              | **N**      |
 
 ----
 ## Includes 
@@ -141,7 +141,24 @@ for passwords & certificates to be set properly**
 --------
 --------
 
-`5. PostgresQl`
+`5. Postgresql`
+
+_Copy the **env.postgresql.sample** file to _env.postgresql_ & set your own **credentials**_
+
+```cp .env.postgresql.sample .env.postgresql```
+###### Configurations
+    a. POSTGRESQL_VERSION
+    b. POSTGRESQL_VOLUME_NAME
+    c. POSTGRESQL_CONTAINER_NAME
+    d. POSTGRESQL_TCP_DEFAULT
+    e. POSTGRESQL_TCP
+    f. ENVIRONMENT VARIABLES = .env.postgresql
+
+```bash
+  >task postgresql-up
+  >task postgresql-logs
+  >task postgresql-down
+```
 
 `6. Redis`
 

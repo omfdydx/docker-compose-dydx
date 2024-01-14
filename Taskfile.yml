@@ -14,6 +14,7 @@ tasks:
       - docker volume prune -f
       - echo "PRUNED DANGLING VOLUMES & CONTAINERS"
 
+##################################################
 # MongoDB Commands
   mongodb-up:
     desc: Start MongoDb
@@ -28,6 +29,7 @@ tasks:
     cmds:
       - docker-compose --profile default down mongodb
 
+##################################################
 # ElasticSearch Commands
   elasticsearch-setup:
     desc: Start ElasticSearch Setup for SSL/TLS Setup for Kibana & Elasticsearch
@@ -50,6 +52,7 @@ tasks:
       - docker-compose --profile default up -d elasticsearch
 
 
+##################################################
   # EMQX Commands
   emqx-up:
     desc: Start Emqx broker
@@ -64,6 +67,7 @@ tasks:
     cmds:
       - docker-compose --profile default down emqx
 
+##################################################
   # Kibana Commands
   kibana-up:
     desc: Start Kibana
@@ -77,3 +81,18 @@ tasks:
     desc: Stop Kibana
     cmds:
       - docker-compose --profile default down kibana
+
+  ##################################################
+  # Postgresql Commands
+  postgresql-up:
+    desc: Start Postgresql
+    cmds:
+      - docker-compose --profile default up -d postgresql
+  postgresql-logs:
+    desc:  Log Postgresql
+    cmds:
+      - docker logs -f $POSTGRESQL_CONTAINER_NAME
+  postgresql-down:
+    desc: Stop Postgresql
+    cmds:
+      - docker-compose --profile default down postgresql

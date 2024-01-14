@@ -167,6 +167,21 @@ services:
       timeout: 10s
       retries: 120
 
+  postgresql:
+    image: postgres:${POSTGRESQL_VERSION}
+    container_name: ${POSTGRESQL_CONTAINER_NAME}
+    profiles:
+      - default
+    networks:
+      - omfdydx
+    volumes:
+      - type: volume
+        source: postgresqldata
+        target: /var/lib/postgresql/data
+    ports:
+      - ${POSTGRESQL_TCP}:${POSTGRESQL_TCP_DEFAULT}
+    env_file:
+      - ./.env.postgresql
 
 #Volumes & Networks listed
 volumes:
@@ -180,6 +195,8 @@ volumes:
     name: ${ELASTICSEARCH_CERTS_VOLUME_NAME}
   kibanadata:
     name: ${KIBANA_VOLUME_NAME}
+  postgresqldata:
+    name: ${POSTGRESQL_VOLUME_NAME}
 networks:
   omfdydx:
     name: ${DOCKER_NETWORK}

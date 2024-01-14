@@ -13,8 +13,16 @@ tasks:
       - docker system prune -f
       - docker volume prune -f
       - echo "PRUNED DANGLING VOLUMES & CONTAINERS"
+  running:
+    desc: Show compose running services
+    cmds:
+      - docker-compose ps -a
+  marathon:
+    desc: Show all running services
+    cmds:
+      - docker ps -a
 
-##################################################
+  ##################################################
 # MongoDB Commands
   mongodb-up:
     desc: Start MongoDb

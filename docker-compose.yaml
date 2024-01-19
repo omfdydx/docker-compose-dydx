@@ -198,6 +198,26 @@ services:
       - ${REDIS_TCP}:${REDIS_TCP_DEFAULT}
     env_file:
       - ./.env.redis
+  kafka:
+    image: bitnami/kafka:${KAFKA_VERSION}
+    container_name: ${KAFKA_CONTAINER_NAME}
+    hostname: kafka
+    profiles:
+      - default
+    networks:
+      omfdydx:
+        aliases:
+          - kafka.local
+    volumes:
+      - ./secrets/client.properties:/opt/bitnami/kafka/config/client.properties
+      - ./secrets/certs:/opt/bitnami/kafka/config/certs
+      - type: volume
+        source: kafkadata
+        target: /bitnami/kafka
+    environment:
+      - KAFKA_CERTIFICATE_PASSWORD=${KAFKA_ZOOKEEPER_TLS_PASSWORD}
+    env_file:
+      - ./.env.kafka
 #Volumes & Networks listed
 volumes:
   mongodb:
@@ -214,6 +234,8 @@ volumes:
     name: ${POSTGRESQL_VOLUME_NAME}
   redisdata:
     name: ${REDIS_VOLUME_NAME}
+  kafkadata:
+    name: ${KAFKA_VOLUME_NAME}
 networks:
   omfdydx:
     name: ${DOCKER_NETWORK}

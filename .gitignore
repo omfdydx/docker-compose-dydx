@@ -2,3 +2,15 @@
 .idea
 .env.*
 !.env.*.sample
+secrets/*.jks
+secrets/*.crt
+secrets/*.creds
+secrets/*.csr
+secrets/*.key
+secrets/certificate-authority/*
+secrets/certs/*
+secrets/keystore/*
+secrets/pem/*
+secrets/truststore/*
+scripts/create-pem.sh
+scripts/kafka-hosts.txt

@@ -49,7 +49,7 @@ https://taskfile.dev/installation/
  | *Kibana*        | `Analytics Dashboard` | **Y**      |
  | *PostgresQl*    | `Database`            | **Y**      |
  | *Redis*         | `Cache`               | **Y**      |
- | *Kafka*         | `Broker`              | **N**      |
+ | *Kafka*         | `Broker`              | **Y**      |
  | *RabbitMQ*      | `Broker`              | **N**      |
 
 ----

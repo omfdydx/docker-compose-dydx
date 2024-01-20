@@ -119,3 +119,18 @@ tasks:
     desc: Stop Redis
     cmds:
       - docker-compose --profile default down redis
+
+##################################################
+  # Kafka Commands
+  kafka-up:
+    desc: Start Kafka
+    cmds:
+      - docker-compose --profile default up -d kafka
+  kafka-logs:
+    desc:  Log Kafka
+    cmds:
+      - docker logs -f $KAFKA_CONTAINER_NAME
+  kafka-down:
+    desc: Stop Kafka
+    cmds:
+      - docker-compose --profile default down kafka

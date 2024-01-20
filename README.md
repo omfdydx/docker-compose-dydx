@@ -180,6 +180,61 @@ _Copy the **env.redis.sample** file to _env.redis_ & set your own **credentials*
   >task redis-logs
   >task redis-down
 ```
+--------
+--------
 `7. Kafka`
+
+###### To set up the certificates for secure connections with clients. Kafka setup uses [Kraft]() rather [zookeeper]()
+
+```bash
+cd scripts && bash create-certs.sh
+# Generates the secrets folder with 
+# - certs, 
+# - keystore, 
+# - truststore, 
+# - pem[Connecting to Kafka via non-Java clients] 
+# - clients.properties
+```
+
+_Copy the **env.kafka.sample** file to _env.kafka_ & set your own **credentials**_
+
+```cp .env.kafka.sample .env.kafka```
+###### Configurations
+    a. KAFKA_VERSION
+    b. KAFKA_ZOOKEEPER_TLS_PASSWORD
+    c. NON_JAVA_CLIENT_GENERATE_PEM
+    d. KAFKA_CONTAINER_NAME
+    e. KAFKA_VOLUME_NAME
+    f. ENVIRONMENT VARIABLES = .env.kafka
+
+```bash
+  >task kafka-up
+  >task kafka-logs
+  >task kafka-down
+```
+
+```bash
+#Checking the consumers can connect via SSL/TLS
+# Get into the container 1. producer 2. consumer
+docker exec -it omfdydx-kafka bash
+
+# 1. Inside the container **9095** SSL/TLS listener
+cd /opt/bitnami/kafka/bin/
+./kafka-topics.sh --bootstrap-server kafka:9095 --create --topic inventory \ 
+ --partitions 3 --command-config /opt/bitnami/kafka/config/client.properties
+ > hello: world, good: bye
+
+# 2. Check the consumer
+cd /opt/bitnami/kafka/bin/
+./kafka-console-consumer.sh --bootstrap-server kafka:9095 \
+--topic inventory --consumer.config /opt/bitnami/kafka/config/client.properties --from-beginning
+ 
+# 3. List the topics
+ ./kafka-topics.sh --list --command-config /opt/bitnami/kafka/config/client.properties \
+  --bootstrap-server kafka:9095
+```
+
+------
+------
 
 `8. RabbitMQ`

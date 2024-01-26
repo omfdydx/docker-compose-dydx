@@ -236,5 +236,23 @@ cd /opt/bitnami/kafka/bin/
 
 ------
 ------
+`8. Simple Kafka - No Auth & Certs - Single Node`
+
+_Copy the **env.safka.sample** file to _env.safka_ & set your own **credentials**_
+
+```cp .env.safka.sample .env.safka```
+###### Configurations
+    a. SAFKA_VOLUME_NAME
+    b. SAFKA_CONTAINER_NAME
+    c. SAFKA_PORT
+    d. SAFKA_PORT_DEFAULT
+    f. ENVIRONMENT VARIABLES = .env.safka
+
+```bash
+  >task safka-up
+  >task safka-logs
+  >task safka-down
+```
+
 
 `8. RabbitMQ`

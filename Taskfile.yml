@@ -121,7 +121,7 @@ tasks:
       - docker-compose --profile default down redis
 
 ##################################################
-  # Kafka Commands
+  # Kafka Commands with Authentication & TLS certs
   kafka-up:
     desc: Start Kafka
     cmds:
@@ -134,3 +134,18 @@ tasks:
     desc: Stop Kafka
     cmds:
       - docker-compose --profile default down kafka
+
+##################################################
+  # Simple Kafka Commands : No Auth or Certs
+  safka-up:
+    desc: Start Simple Kafka
+    cmds:
+      - docker-compose --profile default up -d simple-kafka
+  safka-logs:
+    desc:  Log Simple Kafka
+    cmds:
+      - docker logs -f $SAFKA_CONTAINER_NAME
+  safka-down:
+    desc: Stop Simple Kafka
+    cmds:
+      - docker-compose --profile default down simple-kafka

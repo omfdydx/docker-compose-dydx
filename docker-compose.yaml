@@ -218,6 +218,26 @@ services:
       - KAFKA_CERTIFICATE_PASSWORD=${KAFKA_ZOOKEEPER_TLS_PASSWORD}
     env_file:
       - ./.env.kafka
+  simple-kafka:
+    image: bitnami/kafka:${KAFKA_VERSION}
+    container_name: ${SAFKA_CONTAINER_NAME}
+    hostname: kafka
+    profiles:
+      - default
+    volumes:
+      - type: volume
+        source: safkadata
+        target: /bitnami/kafka
+    networks:
+      omfdydx:
+        aliases:
+          - safka.local
+    env_file:
+      - ./.env.safka
+    ports:
+      - ${SAFKA_PORT}:${SAFKA_PORT_DEFAULT}
+
+
 #Volumes & Networks listed
 volumes:
   mongodb:
@@ -236,6 +256,8 @@ volumes:
     name: ${REDIS_VOLUME_NAME}
   kafkadata:
     name: ${KAFKA_VOLUME_NAME}
+  safkadata:
+    name: ${SAFKA_VOLUME_NAME}
 networks:
   omfdydx:
     name: ${DOCKER_NETWORK}

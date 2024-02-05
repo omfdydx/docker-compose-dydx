@@ -50,6 +50,7 @@ https://taskfile.dev/installation/
  | *PostgresQl*    | `Database`            | **Y**      |
  | *Redis*         | `Cache`               | **Y**      |
  | *Kafka*         | `Broker`              | **Y**      |
+ | *Simple Kafka*  | `Broker`              | **Y**      | 
  | *RabbitMQ*      | `Broker`              | **N**      |
 
 ----

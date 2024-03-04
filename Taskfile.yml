@@ -149,3 +149,18 @@ tasks:
     desc: Stop Simple Kafka
     cmds:
       - docker-compose --profile default down simple-kafka
+
+  ##################################################
+  # Simple RabbitMQ Commands
+  rabbitmq-up:
+    desc: Start RabbitMQ
+    cmds:
+      - docker-compose --profile default up -d rabbitmq
+  rabbitmq-logs:
+    desc:  Log RabbitMQ
+    cmds:
+      - docker logs -f $RABBITMQ_CONTAINER_NAME
+  rabbitmq-down:
+    desc: Stop RabbitMQ
+    cmds:
+      - docker-compose --profile default down rabbitmq

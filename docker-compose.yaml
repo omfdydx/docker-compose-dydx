@@ -236,6 +236,22 @@ services:
       - ./.env.safka
     ports:
       - ${SAFKA_PORT}:${SAFKA_PORT_DEFAULT}
+  rabbitmq:
+    image: rabbitmq:${RABBITMQ_VERSION}
+    container_name: ${RABBITMQ_CONTAINER_NAME}
+    hostname: kafka
+    profiles:
+      - default
+    volumes:
+      - type: volume
+        source: rabbitmqdata
+        target: /var/lib/rabbitmq
+    networks:
+      - omfdydx
+    env_file:
+      - ./.env.rabbitmq
+    ports:
+      - ${RABBITMQ_PORT}:${RABBITMQ_PORT_DEFAULT}
 
 
 #Volumes & Networks listed
@@ -258,6 +274,8 @@ volumes:
     name: ${KAFKA_VOLUME_NAME}
   safkadata:
     name: ${SAFKA_VOLUME_NAME}
+  rabbitmqdata:
+    name: ${RABBITMQ_VOLUME_NAME}
 networks:
   omfdydx:
     name: ${DOCKER_NETWORK}

@@ -257,3 +257,19 @@ _Copy the **env.safka.sample** file to _env.safka_ & set your own **credentials*
 
 
 `8. RabbitMQ`
+
+_Copy the **env.rabbitmq.sample** file to _env.rabbitmq_ & set your own **credentials**_
+
+```cp .env.rabbitmq.sample .env.rabbitmq```
+###### Configurations
+    a. RABBITMQ_VOLUME_NAME
+    b. RABBITMQ_CONTAINER_NAME
+    c. RABBITMQ_PORT
+    d. RABBITMQ_PORT_DEFAULT
+    f. ENVIRONMENT VARIABLES = .env.rabbitmq
+
+```bash
+  >task rabbitmq-up
+  >task rabbitmq-logs
+  >task rabbitmq-down
+```

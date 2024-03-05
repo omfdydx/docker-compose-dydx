@@ -32,7 +32,7 @@ d. Shutdown all services & clean up
 ..
 .
 And so on !!
-This way any combination of services can be Started | Stopped | Monitored
+This way any combination of services can be Started | Stopped | Monitored | Restarting
 as per the Project Dev is working on currently
 
 
@@ -180,6 +180,7 @@ _Copy the **env.redis.sample** file to _env.redis_ & set your own **credentials*
   >task redis-up
   >task redis-logs
   >task redis-down
+  >task redis-restart
 ```
 --------
 --------
@@ -272,4 +273,5 @@ _Copy the **env.rabbitmq.sample** file to _env.rabbitmq_ & set your own **creden
   >task rabbitmq-up
   >task rabbitmq-logs
   >task rabbitmq-down
+  >task rabbitmq-restart
 ```

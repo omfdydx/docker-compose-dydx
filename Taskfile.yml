@@ -119,6 +119,10 @@ tasks:
     desc: Stop Redis
     cmds:
       - docker-compose --profile default down redis
+  redis-restart:
+    desc: Restart Redis
+    cmds:
+      - docker-compose --profile default restart redis
 
 ##################################################
   # Kafka Commands with Authentication & TLS certs
@@ -164,3 +168,7 @@ tasks:
     desc: Stop RabbitMQ
     cmds:
       - docker-compose --profile default down rabbitmq
+  rabbitmq-restart:
+    desc: Restart RabbitMQ
+    cmds:
+      - docker compose --profile default restart rabbitmq

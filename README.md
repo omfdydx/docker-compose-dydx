@@ -51,7 +51,7 @@ https://taskfile.dev/installation/
  | *Redis*         | `Cache`               | **Y**      |
  | *Kafka*         | `Broker`              | **Y**      |
  | *Simple Kafka*  | `Broker`              | **Y**      | 
- | *RabbitMQ*      | `Broker`              | **N**      |
+ | *RabbitMQ*      | `Broker`              | **Y**      |
 
 ----
 ## Includes 

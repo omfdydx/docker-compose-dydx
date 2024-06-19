@@ -36,6 +36,10 @@ tasks:
     desc: Stop MongoDb
     cmds:
       - docker-compose --profile default down mongodb
+  mongodb-restart:
+    desc: MongoDb Redis
+    cmds:
+      - docker-compose --profile default restart mongodb
 
 ##################################################
 # ElasticSearch Commands

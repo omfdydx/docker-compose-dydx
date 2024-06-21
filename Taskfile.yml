@@ -176,3 +176,22 @@ tasks:
     desc: Restart RabbitMQ
     cmds:
       - docker compose --profile default restart rabbitmq
+
+  ##################################################
+  # Simple RabbitMQ Commands
+  utility-up:
+    desc: Start Network & Client utility
+    cmds:
+      - docker-compose --profile default up -d utility
+  utility-logs:
+    desc:  Log Network & Client utility
+    cmds:
+      - docker logs -f $UTILITY_CONTAINER_NAME
+  utility-down:
+    desc: Stop Network & Client utility
+    cmds:
+      - docker-compose --profile default down utility
+  utility-restart:
+    desc: Restart Network & Client utility
+    cmds:
+      - docker compose --profile default restart utility

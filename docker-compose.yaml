@@ -252,6 +252,15 @@ services:
       - ./.env.rabbitmq
     ports:
       - ${RABBITMQ_PORT}:${RABBITMQ_PORT_DEFAULT}
+  utility:
+    image: omfdy/docker-debugger:${UTILITY_VERSION}
+    container_name: ${UTILITY_CONTAINER_NAME}
+    ports:
+      - ${UTILITY_PORT}:${UTILITY_PORT}
+    profiles:
+      - default
+    networks:
+      - omfdydx
 
 
 #Volumes & Networks listed

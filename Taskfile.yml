@@ -178,7 +178,7 @@ tasks:
       - docker compose --profile default restart rabbitmq
 
   ##################################################
-  # Simple RabbitMQ Commands
+  # Simple Utility Commands
   utility-up:
     desc: Start Network & Client utility
     cmds:
@@ -195,3 +195,22 @@ tasks:
     desc: Restart Network & Client utility
     cmds:
       - docker compose --profile default restart utility
+
+  ##################################################
+  # Simple TimescaleDB Commands
+  timescaledb-up:
+    desc: Start TimescaleDB
+    cmds:
+      - docker-compose --profile default up -d timescaledb
+  timescaledb-logs:
+    desc:  Log TimescaleDB
+    cmds:
+      - docker logs -f $TIMESCALEDB_CONTAINER_NAME
+  timescaledb-down:
+    desc: Stop TimescaleDB
+    cmds:
+      - docker-compose --profile default down timescaledb
+  timescaledb-restart:
+    desc: Restart TimescaleDB
+    cmds:
+      - docker compose --profile default restart timescaledb

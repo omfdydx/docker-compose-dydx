@@ -262,6 +262,21 @@ services:
     networks:
       - omfdydx
 
+  timescaledb:
+    image: timescale/timescaledb-ha:${TIMESCALEDB_VERSION}
+    container_name: ${TIMESCALEDB_CONTAINER_NAME}
+    profiles:
+      - default
+    networks:
+      - omfdydx
+    volumes:
+      - type: volume
+        source: timescaledbdata
+        target: /home/postgres/pgdata/data
+    ports:
+      - ${TIMESCALEDB_PORT_DEFAULT}:${TIMESCALEDB_PORT}
+    env_file:
+      - ./.env.timescaledb
 
 #Volumes & Networks listed
 volumes:
@@ -285,6 +300,8 @@ volumes:
     name: ${SAFKA_VOLUME_NAME}
   rabbitmqdata:
     name: ${RABBITMQ_VOLUME_NAME}
+  timescaledbdata:
+    name: ${TIMESCALEDB_VOLUME_NAME}
 networks:
   omfdydx:
     name: ${DOCKER_NETWORK}

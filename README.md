@@ -1,4 +1,4 @@
-![Visits](https://img.shields.io/badge/Visits-0-blue)
+![Visits](https://img.shields.io/badge/Visits-5605-blue)
 
 # Docker Compose Dy-by-Dx !
 

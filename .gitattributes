@@ -1,0 +1,8 @@
+* linguist-vendored
+*.js linguist-detectable=false
+*.html linguist-detectable=false
+*.xml linguist-detectable=false
+*.sh linguist-detectable=true
+*.css linguist-detectable=false
+*.java linguist-detectable=false
+*.python linguist-detectable=true

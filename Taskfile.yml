@@ -5,18 +5,18 @@ tasks:
   all:
     desc: Start all services
     cmds:
-      - docker-compose --profile default up -d
+      - docker compose --profile default up -d
   shutdown:
     desc: Stop all services
     cmds:
-      - docker-compose --profile default down
+      - docker compose --profile default down
       - docker system prune -f
       - docker volume prune -f
       - echo "PRUNED DANGLING VOLUMES & CONTAINERS"
   running:
     desc: Show compose running services
     cmds:
-      - docker-compose ps -a
+      - docker compose ps -a
   marathon:
     desc: Show all running services
     cmds:
@@ -27,7 +27,7 @@ tasks:
   mongodb-up:
     desc: Start MongoDb
     cmds:
-      - docker-compose --profile default up -d mongodb
+      - docker compose --profile default up -d mongodb
   mongodb-logs:
     desc: Log MongoDb
     cmds:
@@ -35,19 +35,19 @@ tasks:
   mongodb-down:
     desc: Stop MongoDb
     cmds:
-      - docker-compose --profile default down mongodb
+      - docker compose --profile default down mongodb
   mongodb-restart:
     desc: MongoDb Redis
     cmds:
-      - docker-compose --profile default restart mongodb
+      - docker compose --profile default restart mongodb
 
 ##################################################
 # ElasticSearch Commands
   elasticsearch-setup:
     desc: Start ElasticSearch Setup for SSL/TLS Setup for Kibana & Elasticsearch
     cmds:
-      - docker-compose --profile default up -d elasticsearch
-      - docker-compose --profile setup_elk up elasticsearch-setup
+      - docker compose --profile default up -d elasticsearch
+      - docker compose --profile setup_elk up elasticsearch-setup
       - docker container rm $ELASTICSEARCH_SETUP_CONTAINER_NAME
       - echo "ElasticSearch Setup Done!"
   elasticsearch-logs:
@@ -57,11 +57,11 @@ tasks:
   elasticsearch-down:
     desc: Stop ElasticSearch
     cmds:
-      - docker-compose --profile default down elasticsearch
+      - docker compose --profile default down elasticsearch
   elasticsearch-up:
     desc: Start ElasticSearch
     cmds:
-      - docker-compose --profile default up -d elasticsearch
+      - docker compose --profile default up -d elasticsearch
 
 
 ##################################################
@@ -69,7 +69,7 @@ tasks:
   emqx-up:
     desc: Start Emqx broker
     cmds:
-      - docker-compose --profile default up -d emqx
+      - docker compose --profile default up -d emqx
   emqx-logs:
     desc:  Log Emqx broker
     cmds:
@@ -77,14 +77,14 @@ tasks:
   emqx-down:
     desc: Stop Emqx broker
     cmds:
-      - docker-compose --profile default down emqx
+      - docker compose --profile default down emqx
 
 ##################################################
   # Kibana Commands
   kibana-up:
     desc: Start Kibana
     cmds:
-      - docker-compose --profile default up -d kibana
+      - docker compose --profile default up -d kibana
   kibana-logs:
     desc:  Log Kibana
     cmds:
@@ -92,14 +92,14 @@ tasks:
   kibana-down:
     desc: Stop Kibana
     cmds:
-      - docker-compose --profile default down kibana
+      - docker compose --profile default down kibana
 
 ##################################################
   # Postgresql Commands
   postgresql-up:
     desc: Start Postgresql
     cmds:
-      - docker-compose --profile default up -d postgresql
+      - docker compose --profile default up -d postgresql
   postgresql-logs:
     desc:  Log Postgresql
     cmds:
@@ -107,14 +107,14 @@ tasks:
   postgresql-down:
     desc: Stop Postgresql
     cmds:
-      - docker-compose --profile default down postgresql
+      - docker compose --profile default down postgresql
 
 ##################################################
   # Redis Commands
   redis-up:
     desc: Start Redis
     cmds:
-      - docker-compose --profile default up -d redis
+      - docker compose --profile default up -d redis
   redis-logs:
     desc:  Log Redis
     cmds:
@@ -122,18 +122,18 @@ tasks:
   redis-down:
     desc: Stop Redis
     cmds:
-      - docker-compose --profile default down redis
+      - docker compose --profile default down redis
   redis-restart:
     desc: Restart Redis
     cmds:
-      - docker-compose --profile default restart redis
+      - docker compose --profile default restart redis
 
 ##################################################
   # Kafka Commands with Authentication & TLS certs
   kafka-up:
     desc: Start Kafka
     cmds:
-      - docker-compose --profile default up -d kafka
+      - docker compose --profile default up -d kafka
   kafka-logs:
     desc:  Log Kafka
     cmds:
@@ -141,14 +141,14 @@ tasks:
   kafka-down:
     desc: Stop Kafka
     cmds:
-      - docker-compose --profile default down kafka
+      - docker compose --profile default down kafka
 
 ##################################################
   # Simple Kafka Commands : No Auth or Certs
   safka-up:
     desc: Start Simple Kafka
     cmds:
-      - docker-compose --profile default up -d simple-kafka
+      - docker compose --profile default up -d simple-kafka
   safka-logs:
     desc:  Log Simple Kafka
     cmds:
@@ -156,14 +156,14 @@ tasks:
   safka-down:
     desc: Stop Simple Kafka
     cmds:
-      - docker-compose --profile default down simple-kafka
+      - docker compose --profile default down simple-kafka
 
   ##################################################
   # Simple RabbitMQ Commands
   rabbitmq-up:
     desc: Start RabbitMQ
     cmds:
-      - docker-compose --profile default up -d rabbitmq
+      - docker compose --profile default up -d rabbitmq
   rabbitmq-logs:
     desc:  Log RabbitMQ
     cmds:
@@ -171,7 +171,7 @@ tasks:
   rabbitmq-down:
     desc: Stop RabbitMQ
     cmds:
-      - docker-compose --profile default down rabbitmq
+      - docker compose --profile default down rabbitmq
   rabbitmq-restart:
     desc: Restart RabbitMQ
     cmds:
@@ -182,7 +182,7 @@ tasks:
   utility-up:
     desc: Start Network & Client utility
     cmds:
-      - docker-compose --profile default up -d utility
+      - docker compose --profile default up -d utility
   utility-logs:
     desc:  Log Network & Client utility
     cmds:
@@ -190,7 +190,7 @@ tasks:
   utility-down:
     desc: Stop Network & Client utility
     cmds:
-      - docker-compose --profile default down utility
+      - docker compose --profile default down utility
   utility-restart:
     desc: Restart Network & Client utility
     cmds:
@@ -201,7 +201,7 @@ tasks:
   timescaledb-up:
     desc: Start TimescaleDB
     cmds:
-      - docker-compose --profile default up -d timescaledb
+      - docker compose --profile default up -d timescaledb
   timescaledb-logs:
     desc:  Log TimescaleDB
     cmds:
@@ -209,7 +209,7 @@ tasks:
   timescaledb-down:
     desc: Stop TimescaleDB
     cmds:
-      - docker-compose --profile default down timescaledb
+      - docker compose --profile default down timescaledb
   timescaledb-restart:
     desc: Restart TimescaleDB
     cmds:

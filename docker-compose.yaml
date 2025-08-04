@@ -281,6 +281,7 @@ services:
 volumes:
   mongodb:
     name: ${MONGO_VOLUME_NAME}
+    external: true
   emqxdb:
     name: ${EMQX_VOLUME_NAME}
   elasticsearchdb:
@@ -299,6 +300,7 @@ volumes:
     name: ${SAFKA_VOLUME_NAME}
   rabbitmqdata:
     name: ${RABBITMQ_VOLUME_NAME}
+    external: true
   timescaledbdata:
     name: ${TIMESCALEDB_VOLUME_NAME}
 networks:
